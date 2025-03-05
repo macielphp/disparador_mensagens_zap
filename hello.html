@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Extensão de Disparo</title>
+        <link rel="stylesheet" href="popup.css">
+    </head>
+    <body>
+        <!-- Menu horizontal -->
+        <ul class="menu">
+            <li id="menu-envio" class="active">Envio</li>
+            <li id="menu-relatorio">Relatório</li>
+        </ul>
+
+        <!-- Seção envio -->
+        <div class="secao__envio">
+            <div class="secao__envio__numeros">
+                <div class="secao_envio__insercao-num">
+                    <input type="file" id="input-csv" accept=".csv">
+                    <label for="input-csv" id="label-csv">.csv</label>|
+                    <input type="file" id="input-xlsx" accept=".xlsx">
+                    <label for="input-xlsv" id="label-xlsx">.xlsx</label>|
+                    <input id="input-numero" type="text" placeholder="11 9 9999-9999">
+                    <a id="btnAdicionarNum"><img src="enter-icon.svg" alt=""></a>
+                </div>
+                <ul class="secao_envio__lista-numeros">
+                    <li class="lista-numeros__item">
+                        <span>+5511939443513</span> 
+                        <a class="btnRemoverNum" aria-label="Remover número">X</a>
+                    </li>  
+                </ul>
+            </div>
+            <div class="secao_envio__funcoes">
+                <div class="secao_envio__funcoes__intervalo">
+                    <span>intervalo(seg)</span>
+                    <input id="intervalo-envio" type="number">
+                </div>
+                <div class="secao_envio__funcoes__botoes">
+                    <a id="btnDisparar">enviar</a>
+                    <a id="btnPararDisparo">parar</a>
+                </div>
+            </div>
+            <div id="secao_envio__mensagem">
+                <h2 class="mensagem__titulo">Mensagem</h2>
+                <textarea rows="10" cols="50" class="mensagem__espaco" id="mensagem" placeholder="Digite sua mensagem aqui"></textarea>
+            </div>
+        </div>
+        <script src="popup.js"></script>
+    </body>
+
+</html>

@@ -66,7 +66,61 @@ Para criar o arquivo `manifest.json` para sua extensão, siga estes passos:
 Após criar e salvar o `manifest.json`, você pode carregar sua extensão no Chrome em **chrome://extensions** utilizando o modo de desenvolvedor para testá-la e fazer os ajustes necessários.
 
 ## Passo 2: Injetar Scripts no WhatsApp Web
+Para injetar scripts no WhatsApp Web, você precisará criar um arquivo de conteúdo (por exemplo, `content.js`) que será automaticamente inserido na página conforme definido no seu `manifest.json`. Esse script de conteúdo terá acesso ao DOM da página e poderá realizar ações como ler, modificar elementos ou simular cliques.
 
+### Passo a Passo para Criar e Injetar o Script
+
+1. **Crie o Arquivo `content.js`**:  
+   No mesmo repositório onde está o seu `manifest.json`, crie um arquivo chamado `content.js`.
+
+2. **Adicione um Código Básico**:  
+   Nesse arquivo, você pode escrever o código que manipula a página. Por exemplo, para simular o envio de uma mensagem, você pode usar seletores para encontrar a caixa de mensagem e o botão de enviar. Lembre-se de que o WhatsApp Web é dinâmico, então pode ser necessário aguardar que os elementos apareçam ou usar observadores para detectar mudanças no DOM.
+
+3. **Exemplo de Código em `content.js`**:
+
+   ```js
+   // Aguarda o carregamento do DOM
+   document.addEventListener('DOMContentLoaded', () => {
+     console.log("Script de conteúdo carregado no WhatsApp Web");
+     
+     // Função para enviar uma mensagem
+     function enviarMensagem(texto) {
+       // Seleciona a caixa de mensagem (o seletor pode variar com atualizações do WhatsApp)
+       const caixaMensagem = document.querySelector('[contenteditable="true"]');
+       if (caixaMensagem) {
+         caixaMensagem.focus();
+         // Insere o texto na caixa
+         document.execCommand('insertText', false, texto);
+         
+         // Tenta encontrar o botão de envio (geralmente identificado por um ícone de envio)
+         const botaoEnviar = document.querySelector('span[data-icon="send"]');
+         if (botaoEnviar) {
+           botaoEnviar.click();
+           console.log(`Mensagem enviada: ${texto}`);
+         } else {
+           console.error("Botão de enviar não encontrado!");
+         }
+       } else {
+         console.error("Caixa de mensagem não encontrada!");
+       }
+     }
+     
+     // Aguarda alguns segundos para garantir que os elementos carregaram
+     setTimeout(() => {
+       enviarMensagem("Olá, esta é uma mensagem automática!");
+     }, 5000);
+   });
+   ```
+
+   **Observações Importantes**:
+   - **Sincronização**: O WhatsApp Web carrega elementos de forma assíncrona. Se os elementos não estiverem disponíveis imediatamente, pode ser útil usar `setTimeout` ou um `MutationObserver` para detectar quando eles aparecem.
+   - **Seletor do DOM**: Os seletores usados (como `[contenteditable="true"]` e `span[data-icon="send"]`) podem mudar com atualizações do WhatsApp. Se os elementos não forem encontrados, será necessário inspecionar a página para atualizar os seletores.
+   - **Debug**: Utilize o console do navegador para verificar mensagens e eventuais erros. Isso ajudará a ajustar os seletores e a lógica do script conforme necessário.
+
+4. **Teste a Extensão**:  
+   Após criar o `content.js`, certifique-se de que o `manifest.json` esteja configurado para injetá-lo nas páginas do WhatsApp Web. Em seguida, carregue sua extensão no Chrome em **chrome://extensions** no modo de desenvolvedor e teste se o script está sendo executado conforme o esperado.
+
+Com esses passos, você terá injetado um script de conteúdo no WhatsApp Web, permitindo interagir com a página e automatizar ações, como enviar mensagens. Se precisar de funcionalidades mais complexas, considere implementar técnicas de sincronização mais robustas (como `MutationObserver`) para lidar com a natureza dinâmica do site.
 
 
 ## Passo 3: Adicionar Funcionalidades

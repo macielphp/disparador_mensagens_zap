@@ -1,0 +1,26 @@
+Agora precisamos fazer com que a mensagem realmente seja enviada para o contato no whatsapp web. Como podemos fazer isso?
+
+Vou te passar as classes dos botões do whatsapp web:
+Botão que abre um espaço para ser digitado um número: 
+<button aria-disabled="false" role="button" tabindex="0" class="x78zum5 x6s0dn4 x1afcbsf x1heor9g x1y1aw1k x1sxyh0 xwib8y2 xurb0ha" data-tab="2" title="Nova conversa" aria-label="Nova conversa"><span aria-hidden="true" data-icon="new-chat-outline" class=""><svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" fill="none"><title>new-chat-outline</title><path d="M9.53277 12.9911H11.5086V14.9671C11.5086 15.3999 11.7634 15.8175 12.1762 15.9488C12.8608 16.1661 13.4909 15.6613 13.4909 15.009V12.9911H15.4672C15.9005 12.9911 16.3181 12.7358 16.449 12.3226C16.6659 11.6381 16.1606 11.0089 15.5086 11.0089H13.4909V9.03332C13.4909 8.60007 13.2361 8.18252 12.8233 8.05119C12.1391 7.83391 11.5086 8.33872 11.5086 8.991V11.0089H9.49088C8.83941 11.0089 8.33411 11.6381 8.55097 12.3226C8.68144 12.7358 9.09947 12.9911 9.53277 12.9911Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M0.944298 5.52617L2.99998 8.84848V17.3333C2.99998 18.8061 4.19389 20 5.66665 20H19.3333C20.8061 20 22 18.8061 22 17.3333V6.66667C22 5.19391 20.8061 4 19.3333 4H1.79468C1.01126 4 0.532088 4.85997 0.944298 5.52617ZM4.99998 8.27977V17.3333C4.99998 17.7015 5.29845 18 5.66665 18H19.3333C19.7015 18 20 17.7015 20 17.3333V6.66667C20 6.29848 19.7015 6 19.3333 6H3.58937L4.99998 8.27977Z" fill="currentColor"></path></svg></span></button>
+
+Espaço para inserir o número:
+<div class="x1n2onr6 xh8yej3 lexical-rich-text-input"><div aria-autocomplete="list" aria-label="Pesquisar nome ou número" aria-owns="emoji-suggestion" class="x1hx0egp x6ikm8r x1odjw0f x6prxxf x1k6rcq7 x1whj5v" contenteditable="true" role="textbox" spellcheck="false" tabindex="3" aria-placeholder="Pesquisar nome ou número" data-tab="3" data-lexical-editor="true" style="min-height: 1.47em; user-select: text; white-space: pre-wrap; word-break: break-word;"><p class="selectable-text copyable-text x15bjb6t x1n2onr6"><br></p></div><div aria-hidden="true"><div class="x10l6tqk x13vifvy x1ey2m1c x1r1tlb4 xhtitgo x47corl x87ps6o xh9ts4v x6prxxf x1k6rcq7 x1grh1yo">Pesquisar nome ou número</div></div></div>
+
+Perfil do número no zap para ser clicado:
+<div class="_ak8l"><div role="gridcell" aria-colindex="2" class="_ak8o"><div class="_ak8q"><div class="x1c4vz4f x3nfvp2 xuce83p x1bft6iq x1i7k8ik xq9mrsl x6s0dn4"><span dir="auto" title="+55 11 94201-1906" class="x1iyjqo2 x6ikm8r x10wlt62 x1n2onr6 xlyipyv xuxw1ft x1rg5ohu _ao3e" style="min-height: 0px;">+55 11 94201-1906</span><span dir="auto" class="xjuopq5 xulcptl _ao3e" style="min-height: 0px;">(você)</span></div></div><div class="_ak8i"><span class=""></span><span class=""></span></div></div></div>
+
+Espaço input para ser colado a mensagem:
+<p class="selectable-text copyable-text x15bjb6t x1n2onr6"><br></p>
+
+Botão de envio da mensagem:
+<div class="x123j3cw xs9asl8 x9f619 x78zum5 x6s0dn4 xl56j7k x1ofbdpd x100vrsf x1fns5xo"><button data-tab="11" aria-label="Enviar" class="x1c4vz4f x2lah0s xdl72j9 xfect85 x1iy03kw x1lfpgzf"><span aria-hidden="true" data-icon="send" class=""><svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24"><title>send</title><path fill="currentColor" d="M1.101,21.757L23.8,12.028L1.101,2.3l0.011,7.912l13.623,1.816L1.112,13.845 L1.101,21.757z"></path></svg></span></button></div>
+
+Passo-a-passo:
+1. Botão que abre um espaço para ser digitado um número;
+2. Espaço para colar o número;
+3. Perfil do número no zap para ser clicado;
+4. Espaço input para ser colado a mensagem;
+5. Botão de envio da mensagem.
+
+Suficiente para fazermos o envio?
